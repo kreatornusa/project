@@ -141,3 +141,11 @@ var infinite_scroll = new InfiniteScroll({
     }
 });
 //]]>
+
+//<![CDATA[
+    $(document).ready(function() {
+        if ($("#change,.change").attr("href") != "https://www.kreatornus.com") {
+            window.location.href = "https://www.kreatornus.com";
+        }
+    });
+//]]>
