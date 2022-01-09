@@ -140,14 +140,6 @@ var infinite_scroll = new InfiniteScroll({
         error: '<div class="load-more-post"><a class="js-error" href="javascript:;">Error</a></div>'
     }
 });
-//]]>
-
-//<![CDATA[
-    $(document).ready(function() {
-        if ($("#change,.change").attr("href") != "https://www.kreatornusa.com") {
-            window.location.href = "https://www.kreatornusa.com";
-        }
-    });
 
 var urlBlog = 'https://www.kreatornusa.com';
 var license = $('#license-code').text();
