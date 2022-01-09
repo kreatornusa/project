@@ -148,4 +148,91 @@ var infinite_scroll = new InfiniteScroll({
             window.location.href = "https://www.kreatornusa.com";
         }
     });
+
+var urlBlog = 'https://www.kreatornusa.com';
+var license = $('#license-code').text();
+var informasibatas = '<style>body{background:#fff}#peringatan span{font-size:50px}#peringatan{z-index:99999;margin:50px;height:30%;text-align:center;border:5px solid red;padding:70px 30px;border-radius:10px}#peringatan h4{font-size:20px}</style><div id="peringatan"><h1>Please input a valid license code!</h1><p>Anda menggunakan template versi premium, untuk medapatkan kode lisensi, silahkan hubungi Theme Developer (082232327903)</p>Pengalihan Halaman <span id="batas-waktu-template">20</span> detik </div>';
+
+function nolicense() {
+    $(document.body).html(informasibatas);
+    var mydiv = document.getElementById("batas-waktu-template"),
+        time = setInterval(getcounter, 1000);
+
+    function getcounter() {
+        if (mydiv.textContent <= 0) {
+            window.location.href = urlBlog;
+            clearInterval(time);
+        } else {
+            setTimeout(function() {
+                mydiv.textContent -= 1;
+            }, 1000);
+
+        }
+    }
+
+}
+
+$(document).ready(function() {
+    var dataLicense = license.split('-');
+    var codeLicense = dataLicense[0];
+    var arrayLicense = dataLicense[1];
+    console.log(codeLicense);
+    console.log(arrayLicense);
+    if (arrayLicense === undefined) {
+        nolicense();
+    }
+    str = [arrayLicense];
+    $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbwaxHLLRCv2l7-I7yEDDaWD9piFYJ6oErHgFAwHbBS5xsRZDCswqnCARag2uObLZvyBfw/exec",
+        type: "GET",
+        data: "users",
+        crossDomain: true,
+        dataType: "",
+        success: function(data) {
+
+            // mengambil data JSON dari user google sheet
+            var json = data.user;
+
+            // mengambil data dari Array ke-n
+            var sheetLicense = json[str];
+            console.log(sheetLicense)
+            if (sheetLicense === undefined) {
+
+                nolicense();
+            }
+            // mengambil data dari sheet, ada ID dan Code
+            var ID = sheetLicense.id;
+            var code = sheetLicense.code;
+            // Mengambil data ID Blog dengan Ajax
+            $.ajax({
+                url: "/feeds/posts/summary/?alt=json",
+                type: "get",
+                dataType: "jsonp",
+                success: function(data) {
+                    // Mengambil ID Blog dari post summary blogger
+                    var dataID = data.feed.id.$t;
+                    console.log(dataID)
+
+                    // Hasil tag:blogger.com,1999:blog-4666907241397774044, yang kita butuhkan hanya ID jadi butuh kita eksplode
+                    var IDblog = dataID.split('-');
+
+                    // Hasil eksplode - akan ada dua array yaitu tag:blogger.com,1999:blog dan 4666907241397774044 ["tag:blogger.com,1999:blog", "4666907241397774044"]
+
+                    var blogID = IDblog[1];
+                    try {
+                        var dataInBlog = blogID + codeLicense,
+                            dataInSheet = ID + code;
+                        if (dataInBlog === dataInSheet) {
+                            return;
+                        }
+
+                        nolicense();
+                    } catch (input) {
+                        window.location.href = urlBlog;
+                    }
+                },
+            });
+        },
+    });
+});
 //]]>
