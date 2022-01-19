@@ -1,5 +1,5 @@
 //<![CDATA[
-/*! Simple AJAX infinite scroll by Maefta Saefudin */
+/*! Simple AJAX infinite scroll by Kreatornusa.com */
 ! function(t, e) {
     t.InfiniteScroll = function(n) {
         function r(t, n) {
@@ -228,6 +228,6 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function () { if ($("#change,.change").attr("href") != "https://www.kreatornusa.com.com") {
-        window.location.href = "https://www.kreatornusa.com.com"; }});
+$(document).ready(function () { if ($("#change,.change").attr("href") != "https://www.kreatornusa.com") {
+        window.location.href = "https://www.kreatornusa.com"; }});
 //]]>
