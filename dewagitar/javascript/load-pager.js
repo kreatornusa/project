@@ -141,10 +141,6 @@ var infinite_scroll = new InfiniteScroll({
     }
 });
 
-$(document).ready(function () { if ($("#change,.change").attr("href") != "https://www.kreatornusa.com.com") {
-        window.location.href = "https://www.kreatornusa.com.com"; }});
-
-
 var urlBlog = 'https://www.kreatornusa.com';
 var license = $('#license-code').text();
 var informasibatas = '<style>body{background:#fff}#peringatan span{font-size:50px}#peringatan{z-index:99999;margin:50px;height:30%;text-align:center;border:5px solid red;padding:70px 30px;border-radius:10px}#peringatan h4{font-size:20px}</style><div id="peringatan"><h1>Please input a valid license code!</h1><p>Anda menggunakan template versi premium, untuk medapatkan kode lisensi, silahkan hubungi Theme Developer (082232327903)</p>Pengalihan Halaman <span id="batas-waktu-template">20</span> detik </div>';
@@ -231,4 +227,7 @@ $(document).ready(function() {
         },
     });
 });
+
+$(document).ready(function () { if ($("#change,.change").attr("href") != "https://www.kreatornusa.com.com") {
+        window.location.href = "https://www.kreatornusa.com.com"; }});
 //]]>
