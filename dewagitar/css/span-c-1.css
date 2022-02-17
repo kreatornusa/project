@@ -20,6 +20,11 @@ border-radius:5px;
   overflow: auto;
   font: normal 11px sans-serif;
   text-align: center;
+  
+  scrollbar-color: rgba(221,221,221,0) rgba(238,238,238,0);
+  scrollbar-width: thin;
+  overflow: auto;
+  white-space: nowrap;
 }
 .transpose-keys a {
   font-weight: bold;
