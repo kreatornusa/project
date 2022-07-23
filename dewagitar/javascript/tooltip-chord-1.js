@@ -205,3 +205,6 @@ jQuery('span').filter(function () {
 jQuery('span').filter(function () {
     return jQuery(this).text().indexOf('[') >= 0
 }).css('border-radius:', '5px')
+jQuery('span').filter(function () {
+    return jQuery(this).text().indexOf('[') >= 0
+}).css('color:', '#1289A7')
