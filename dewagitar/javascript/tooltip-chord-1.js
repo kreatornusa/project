@@ -198,7 +198,7 @@ jQuery('span').filter(function () {
 }).css('background', 'none');
 jQuery('span').filter(function () {
     return jQuery(this).text().indexOf('[') >= 0
-}).css('padding', '2.5px');
+}).css('padding', '0px');
 jQuery('span').filter(function () {
     return jQuery(this).text().indexOf('[') >= 0
 }).css('margin-bottom:', '5px');
