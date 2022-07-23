@@ -198,6 +198,9 @@ jQuery('span').filter(function () {
 }).css('background', 'none');
 jQuery('span').filter(function () {
     return jQuery(this).text().indexOf('[') >= 0
+}).css('color', '#1289A7');
+jQuery('span').filter(function () {
+    return jQuery(this).text().indexOf('[') >= 0
 }).css('padding', '0px');
 jQuery('span').filter(function () {
     return jQuery(this).text().indexOf('[') >= 0
@@ -205,6 +208,4 @@ jQuery('span').filter(function () {
 jQuery('span').filter(function () {
     return jQuery(this).text().indexOf('[') >= 0
 }).css('border-radius:', '5px')
-jQuery('span').filter(function () {
-    return jQuery(this).text().indexOf('[') >= 0
-}).css('color:', '#1289A7')
+
